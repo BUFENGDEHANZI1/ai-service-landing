@@ -18,7 +18,9 @@
 
   /* ===== Layout ===== */
   .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
-  section { padding: 6rem 0; }
+  section { padding: 5rem 0; }
+  section.hero { padding: 6rem 0; }
+  section.cta-section { padding: 6rem 0; }
 
   /* ===== Typography ===== */
   .module-label {
@@ -327,7 +329,7 @@
     <p class="module-label">现状诊断</p>
     <h2 class="section-title">业务继续往前走，<br>不能只靠老师和老板亲自顶着。</h2>
     <p class="section-desc">
-      付同学外贸已经有外贸经验、课程产品、IP影响力和客户基础。接下来真正影响效率的，不只是有没有客户进来，而是客户进来之后，团队能不能用统一标准承接咨询、成交课程、交付学员、处理问题、复盘案例。
+      付同学外贸已经有外贸经验、课程产品、IP影响力和客户基础。接下来真正影响效率的，是客户进来之后——团队能不能用统一标准承接咨询、成交课程、交付学员、处理问题、复盘案例。
     </p>
     <div class="card-grid cols-4">
       <div class="card fade-in">
@@ -351,6 +353,43 @@
         <div class="card-desc">没有把课程资料、销售话术、学员问题、交付流程整理成系统，AI很难真正为团队长期服务。</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== New Module: What We Replicate ===== -->
+<section>
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">核心思路</p>
+    <h2 class="section-title">我们要复制的，<br>是一套高人效的工作方式。</h2>
+    <p class="section-desc">
+      以前客户咨询靠销售个人经验，学员问题靠老师反复回复，课程资料和案例分散在聊天记录里，客服只能做基础接待。
+    </p>
+    <div class="card-grid cols-4" style="margin-top:2.5rem;">
+      <div class="card fade-in">
+        <div class="card-num">之前</div>
+        <div class="card-title">咨询靠个人</div>
+        <div class="card-desc">客户问什么、怎么回、推哪个产品，全靠销售自己的判断。人一走，经验跟着走。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">之前</div>
+        <div class="card-title">答疑靠老师</div>
+        <div class="card-desc">学员遇到问题，老师一个一个回。同样的选品问题、平台问题反复讲。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">之后</div>
+        <div class="card-title">咨询有标准</div>
+        <div class="card-desc">话术、判断表、产品推荐逻辑统一，客服照着知识库就能处理大部分标准咨询。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">之后</div>
+        <div class="card-title">答疑有系统</div>
+        <div class="card-desc">常见问题整理成库，客服先答第一轮，复杂问题再转老师。学员等得更短，老师省下时间做高价值的事。</div>
+      </div>
+    </div>
+    <p style="font-size:0.95rem;color:#a8a49d;margin-top:2rem;line-height:1.8;max-width:720px;">
+      我们要做的，是把这些分散的经验和资料，整理成统一的知识库、话术模板、交付SOP和智能体使用规范。让客服在系统支持下，也能承接更多标准化咨询和学员问题——这才是真正的高人效复制。
+    </p>
   </div>
 </section>
 
@@ -387,27 +426,38 @@
     <p class="module-label">服务内容一</p>
     <h2 class="section-title">先把产品路径讲清楚，<br>团队才知道每一步怎么承接。</h2>
     <p class="section-desc">围绕付同学外贸最新产品线，逐层梳理产品定位和承接逻辑。</p>
-    <div class="card-grid cols-2" style="margin-top:2.5rem;">
+    <div class="card-grid cols-3" style="margin-top:2.5rem;">
       <div class="card fade-in">
-        <div class="card-title">99元钩子品</div>
-        <div class="card-desc">明确定位、承接动作和筛选标准。什么样的客户适合从99开始，99之后怎么自然过渡到更深度的服务。</div>
+        <div class="card-num">第一阶梯</div>
+        <div class="card-title">99元钩子品 · 低门槛转化</div>
+        <div class="card-desc">
+          定位：筛选基础兴趣用户，降低第一次付费门槛。<br>
+          承接动作：付费后怎么跟进、怎么判断用户类型、怎么为后续升级做铺垫。<br>
+          关键问题：什么样的客户适合从99开始？99之后怎么过渡到更深度的服务？
+        </div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">8980元线下课</div>
-        <div class="card-desc">梳理核心价值、成交理由和适合人群。课前、课中、课后如何自然铺垫后续高阶服务。</div>
+        <div class="card-num">第二阶梯</div>
+        <div class="card-title">8980元线下课 · 核心成交与交付</div>
+        <div class="card-desc">
+          定位：当前主要收入产品，负责建立深度信任和实操交付。<br>
+          承接动作：销售如何解释线下课价值、课前课中课后全流程服务、课中如何识别高阶客户。<br>
+          关键问题：客户为什么需要到线下学？怎么让学员觉得值？
+        </div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">未来私董会</div>
-        <div class="card-desc">雏形设计、适合客户和价值方向。现阶段怎么识别优质客户，怎么为未来产品做储备。</div>
-      </div>
-      <div class="card fade-in">
-        <div class="card-title">产品推荐逻辑</div>
-        <div class="card-desc">不同客户类型对应不同的产品推荐路径。从低门槛到核心课程，再到高阶服务的完整升级链路。</div>
+        <div class="card-num">第三阶梯</div>
+        <div class="card-title">未来私董会 · 高阶服务储备</div>
+        <div class="card-desc">
+          定位：承接优质企业客户、工厂老板和长期深度学习需求。<br>
+          承接动作：现阶段怎么识别优质客户、怎么为未来产品做客户储备。<br>
+          关键问题：雏形怎么设计？什么客户值得长期跟？
+        </div>
       </div>
     </div>
     <div class="highlight-box">
       <p class="label">输出方向</p>
-      <p>形成一份付同学外贸产品路径梳理，让销售、客服、老师统一口径。</p>
+      <p>一份付同学外贸产品路径梳理，包含三层产品的定位、承接、升级逻辑。销售、客服、老师统一口径，知道每个客户在哪个阶段、下一步往哪走。</p>
     </div>
   </div>
 </section>
@@ -458,25 +508,33 @@
     <p class="module-label">服务内容三</p>
     <h2 class="section-title">让客服不只会接待，<br>还能够按销售逻辑推进客户。</h2>
     <p class="section-desc">
-      帮付同学外贸梳理销售型客服的知识库和使用方式。让客服在知识库和智能体支持下，可以处理更多标准咨询、输出更统一的话术、减少老板和老师重复解答。
+      目标是让客服具备更强的标准化销售承接能力。客服能判断客户阶段、推荐对应产品、处理常见异议，把高意向客户筛出来交给老师重点跟进，减少老板和老师花在低价值重复咨询上的时间。
     </p>
     <div class="card-grid cols-3" style="margin-top:2.5rem;">
       <div class="card fade-in">
-        <div class="card-title">产品介绍能力</div>
-        <div class="card-desc">99元钩子品怎么介绍、8980线下课怎么解释、不同产品对应的客户类型。</div>
+        <div class="card-title">判断客户阶段</div>
+        <div class="card-desc">客服能根据客户问题、行为和信息，判断客户处于了解期、犹豫期还是决策期，用对应的方式沟通。</div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">客户分层判断</div>
-        <div class="card-desc">新手、小白、工厂老板、外贸老手分别怎么沟通；什么客户推荐线下课、什么客户先培育、什么客户未来适合私董会。</div>
+        <div class="card-title">推荐对应产品</div>
+        <div class="card-desc">根据客户类型和需求，知道什么时候推荐99元钩子品、什么时候引导了解8980线下课、什么客户适合未来私董会。</div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">异议处理</div>
-        <div class="card-desc">客户犹豫价格、时间、效果时怎么回应，常见抗拒点和化解方式。</div>
+        <div class="card-title">处理常见异议</div>
+        <div class="card-desc">客户犹豫价格、时间、效果时，客服能根据话术库做第一轮回应。不需要每次都等老师或销售来回复。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-title">筛选高意向客户</div>
+        <div class="card-desc">客服把明确有兴趣、有预算、有决策意愿的客户筛出来，标记关键信息后交给老师或销售重点跟进。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-title">统一话术口径</div>
+        <div class="card-desc">不同客服面对同类问题时，输出的回答风格和关键信息保持一致，客户不会因为换人对接而感觉断层。</div>
       </div>
     </div>
     <div class="highlight-box">
       <p class="label">输出方向</p>
-      <p>销售型客服知识库结构、客服常用回复话术、客户分层判断表、咨询推进模板。</p>
+      <p>销售型客服知识库结构、客户分层判断表、常用回复话术、咨询推进模板。</p>
     </div>
   </div>
 </section>
@@ -488,25 +546,25 @@
     <p class="module-label">服务内容四</p>
     <h2 class="section-title">把老师的外贸经验，<br>整理成客服也能调用的答疑系统。</h2>
     <p class="section-desc">
-      外贸学员问题很多，如果每个问题都靠老师一对一回复，团队会越来越累。把常见问题整理成知识库，让客服在AI辅助下回答大量标准化学习问题和应用问题。
+      外贸学员的问题量很大，选品、平台、社媒、客户开发、询盘跟进、独立站、AI工具——品类多、层级杂。但不是每个问题都需要老师亲自回复。把老师的经验、课程资料、常见答疑整理成系统，让客服先处理大量标准化问题，老师只介入真正需要专业判断的部分。
     </p>
     <div class="card-grid cols-3" style="margin-top:2.5rem;">
       <div class="card fade-in">
-        <div class="card-title">学员常见问题库</div>
-        <div class="card-desc">外贸新手怎么起步、产品方向怎么判断、社媒获客怎么做、客户开发怎么开始、询盘来了怎么跟进、独立站适合什么阶段做、AI工具怎么用在外贸里。</div>
+        <div class="card-title">客服可以借助系统回答</div>
+        <div class="card-desc">外贸新手怎么起步、产品方向怎么判断、社媒获客怎么做、客户开发怎么开始、询盘跟进流程、独立站适合什么阶段、AI工具推荐和使用问题。</div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">标准答疑模板</div>
-        <div class="card-desc">针对高频问题形成统一回复模板，客服直接调用，老师抽查质量即可。</div>
+        <div class="card-title">需要转给老师处理</div>
+        <div class="card-desc">涉及具体订单谈判策略、复杂客户案例诊断、行业特殊合规问题、大客户定制方案等需要深度专业判断的场景。</div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">转接判断规则</div>
-        <div class="card-desc">明确哪些问题客服可以直接答、哪些需要转给老师处理，避免客服越界回答专业问题。</div>
+        <div class="card-title">让学员体验更好</div>
+        <div class="card-desc">客服先答第一轮，学员不用等老师上线才能得到回复。问题处理速度更快，学员感觉服务更及时，老师也不用半夜还在回消息。</div>
       </div>
     </div>
     <div class="highlight-box">
       <p class="label">输出方向</p>
-      <p>学员常见问题库、标准答疑模板、客服转接老师判断规则、学员阶段性跟进方式。</p>
+      <p>学员常见问题库及分类、标准答疑模板、客服可答 / 需转老师判断规则、交付资料持续积累方式。</p>
     </div>
   </div>
 </section>
@@ -517,19 +575,22 @@
     <div class="divider"></div>
     <p class="module-label">服务内容五</p>
     <h2 class="section-title">课程交付不能只靠老师感觉，<br>要让团队有统一标准。</h2>
+    <p class="section-desc">
+      让学员从报名到结课都有统一的服务标准。每一步谁来做、什么时候做、交付什么，团队照着SOP执行，不需要每次都等老师安排。
+    </p>
     <div class="card-grid cols-2" style="margin-top:2.5rem;">
       <div class="card fade-in">
-        <div class="card-title">新学员全流程</div>
-        <div class="card-desc">报名后流程、课前资料准备、到课提醒和学习提醒、课中重点记录、课后作业和反馈。每一步有明确的执行人和检查点。</div>
+        <div class="card-title">学员报名到结课全流程</div>
+        <div class="card-desc">报名后确认信息 → 课前资料发送 → 到课提醒 → 课中重点记录 → 课后作业布置与反馈 → 结课后跟进。每步有执行人、时间节点、检查标准。</div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">学员分层跟进</div>
-        <div class="card-desc">不同基础学员的跟进方式、优质学员案例如何留存、课后复盘和二次转化机会识别。</div>
+        <div class="card-title">学员分层与案例留存</div>
+        <div class="card-desc">不同基础学员用不同跟进方式；优质学员作业和反馈留存为案例；课后识别有二次转化和升级潜力的学员。</div>
       </div>
     </div>
     <div class="highlight-box">
       <p class="label">输出方向</p>
-      <p>学员交付SOP、课前课后服务流程、学员问题分类表、案例留存模板。</p>
+      <p>学员交付SOP、课前课后服务流程表、学员问题分类框架、案例留存模板。</p>
     </div>
   </div>
 </section>
@@ -541,31 +602,25 @@
     <p class="module-label">服务内容六</p>
     <h2 class="section-title">AI要真正有用，<br>前提是公司资料要整理得足够清楚。</h2>
     <p class="section-desc">
-      带团队把付同学外贸现有资料整理成可持续更新的AI知识库，同时带教团队日常使用AI的方法。
+      上面所有模块——销售话术、学员答疑、交付流程、课程资料——都需要一个整理好的知识底座。我们会带团队把付同学外贸现有资料梳理成结构清晰的AI知识库。
     </p>
-    <div class="card-grid cols-3" style="margin-top:2.5rem;">
+    <div class="card-grid cols-2" style="margin-top:2.5rem;">
       <div class="card fade-in">
-        <div class="card-title">知识库结构</div>
+        <div class="card-title">知识库结构（12个子库）</div>
         <div class="card-desc">
-          产品资料库、99元钩子品资料库、8980线下课资料库、未来私董会规划库、销售话术库、客户问题库、学员答疑库、课程资料库、外贸方法库、学员案例库、交付流程库、团队风格规范库。
+          产品资料库 · 99元钩子品库 · 8980线下课库 · 未来私董会规划库 · 销售话术库 · 客户问题库 · 学员答疑库 · 课程资料库 · 外贸方法库 · 学员案例库 · 交付流程库 · 团队风格规范库
         </div>
       </div>
       <div class="card fade-in">
-        <div class="card-title">团队AI使用方法</div>
+        <div class="card-title">团队使用与持续更新</div>
         <div class="card-desc">
-          怎么补充背景、怎么调用知识库、怎么让AI按公司口径输出、怎么检查回答能不能发给客户。
-        </div>
-      </div>
-      <div class="card fade-in">
-        <div class="card-title">持续更新机制</div>
-        <div class="card-desc">
-          怎么把好结果继续放回资料库、怎么让知识库越用越顺手。团队日常使用中积累的内容，如何归类、更新、优化。
+          带教怎么补充背景、调用知识库、让AI按公司口径输出、检查回答质量。关键的是，怎么把日常使用中产生的好结果继续放回资料库，让库越用越厚、越用越准。
         </div>
       </div>
     </div>
     <div class="highlight-box">
       <p class="label">输出方向</p>
-      <p>AI知识库基础结构、智能体使用说明、团队日常使用规范。</p>
+      <p>AI知识库基础结构、各子库初始内容框架、智能体使用说明、团队日常使用与更新规范。</p>
     </div>
   </div>
 </section>
@@ -602,7 +657,7 @@
         <div class="tl-desc">
           配置常用智能体；演示销售型客服怎么用；演示交付老师型客服怎么用；带团队用真实业务问题跑一遍；教团队后续怎么更新资料和优化回答。
         </div>
-        <div style="margin-top:0.5rem; font-size:0.85rem; color:#8aa8c0;">当天目标：让团队会用，而不是只看我们演示。</div>
+        <div style="margin-top:0.5rem; font-size:0.85rem; color:#8aa8c0;">当天目标：团队自己上手操作，不看演示。</div>
       </div>
     </div>
   </div>
@@ -689,8 +744,8 @@
         </ul>
       </div>
       <div class="price-note">
-        本次服务重点是商业化定制陪跑和AI提效应用，不包含独立软件系统开发、不包含长期代运营、不包含长期代写内容、不包含替代团队完成所有资料整理。<br><br>
-        我们会带团队搭结构、跑示范、做模板、教方法。后续团队需要持续补充资料、持续使用AI、持续更新知识库，这套体系才会越来越贴近付同学外贸自己的业务。
+        本次服务重点放在商业化路径梳理、交付体系标准化、AI知识库搭建和团队使用带教，不涉及独立软件开发和长期代运营。<br><br>
+        我们会带团队搭结构、跑示范、做模板、教方法。后续由团队持续补充资料和使用优化，这套体系才会越来越贴近付同学外贸自己的业务。
       </div>
     </div>
   </div>
@@ -699,15 +754,16 @@
 <!-- ===== Module 14: CTA ===== -->
 <section class="cta-section" id="contact">
   <div class="container">
-    <h2 class="cta-title">让付同学外贸从"老师很强"，<br>走向"团队也能持续复制"。</h2>
+    <h2 class="cta-title">确认服务方案</h2>
     <p class="cta-desc">
-      付同学外贸已经有外贸经验、课程产品和客户基础。接下来更重要的是，把老师经验整理成产品，把产品路径讲清楚，把学员交付流程标准化，把客服和销售培养成能借助AI处理问题的人。<br><br>
-      这次服务会先用3天把核心框架搭起来，再用2个月陪你们跑一段真实业务，让产品、销售、交付和AI应用真正接到一起。
+      如果这套方向确认，我们可以进一步根据付同学外贸现有资料、团队配置、课程交付情况，细化线下3天的具体执行安排。
     </p>
     <div class="cta-btns">
-      <a href="#contact" class="cta-btn">确认服务方案</a>
-      <a href="#contact" class="cta-btn alt">预约沟通</a>
+      <a href="#" class="cta-btn">联系项目顾问</a>
     </div>
+    <p style="margin-top:1.8rem; font-size:0.9rem; color:#7a7770; position:relative;">
+      微信号：待填写
+    </p>
   </div>
 </section>
 
