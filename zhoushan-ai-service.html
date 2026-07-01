@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周金山国画IP｜AI助力私域运营与前端内容</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: #0b0a08;
+    color: #dcd8d0;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* ===== Layout ===== */
+  .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+  section { padding: 5rem 0; }
+  section.hero { padding: 6rem 0; }
+  section.cta-section { padding: 6rem 0; }
+
+  /* ===== Typography ===== */
+  .module-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9b8b7a;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .section-title {
+    font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    color: #eee9e0;
+    margin-bottom: 1rem;
+  }
+  .section-desc {
+    font-size: 1.02rem;
+    color: #8a8780;
+    line-height: 1.85;
+    max-width: 640px;
+  }
+  .divider {
+    width: 40px; height: 2px;
+    background: rgba(184,128,90,0.4);
+    margin: 0 0 2rem 0;
+  }
+
+  /* ===== Nav ===== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 0;
+    transition: background 0.35s ease, padding 0.35s ease;
+  }
+  .nav.scrolled {
+    background: rgba(11,10,8,0.93);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 0.8rem 0;
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1120px; margin: 0 auto; padding: 0 2rem;
+  }
+  .nav-logo { font-size: 0.88rem; font-weight: 600; color: #c4946a; letter-spacing: 0.04em; }
+  .nav-cta {
+    font-size: 0.82rem; color: #c4946a;
+    border: 1px solid rgba(196,148,106,0.35);
+    padding: 0.4rem 1.1rem; border-radius: 100px;
+    cursor: pointer; background: none;
+    transition: all 0.25s ease;
+  }
+  .nav-cta:hover { background: rgba(196,148,106,0.1); border-color: rgba(196,148,106,0.6); }
+
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding-top: 4rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -30%; right: -15%;
+    width: 65%; height: 130%;
+    background: radial-gradient(ellipse at center, rgba(184,128,90,0.045) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .hero-tag {
+    font-size: 0.77rem; padding: 0.3rem 0.9rem; border-radius: 100px;
+    background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07);
+    color: #9b9890; letter-spacing: 0.02em;
+  }
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700; line-height: 1.15; letter-spacing: 0.01em;
+    color: #f0ece4; margin-bottom: 1.5rem; max-width: 850px;
+  }
+  .hero-title em { font-style: normal; color: #c4946a; }
+  .hero-desc {
+    font-size: clamp(0.93rem, 1.5vw, 1.05rem);
+    color: #94918b; line-height: 1.85; max-width: 650px; margin-bottom: 2.5rem;
+  }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.9rem; font-weight: 600; padding: 0.75rem 1.8rem;
+    border-radius: 100px; background: #b8805a; color: #fff;
+    border: none; cursor: pointer; letter-spacing: 0.03em;
+    transition: all 0.25s ease;
+  }
+  .btn-primary:hover { background: #c4946a; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.9rem; font-weight: 500; padding: 0.7rem 1.7rem;
+    border-radius: 100px; background: transparent; color: #c4946a;
+    border: 1px solid rgba(196,148,106,0.4); cursor: pointer;
+    letter-spacing: 0.03em; transition: all 0.25s ease;
+  }
+  .btn-outline:hover { background: rgba(196,148,106,0.08); border-color: rgba(196,148,106,0.7); }
+
+  /* ===== Cards ===== */
+  .card-grid { display: grid; gap: 1.2rem; margin-top: 3rem; }
+  .card-grid.cols-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card-grid.cols-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .card-grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+  .card {
+    background: rgba(255,255,255,0.018);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px; padding: 2rem 1.8rem;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .card:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.025); }
+  .card-num { font-size: 0.73rem; color: #9b8b7a; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .card-title { font-size: 1.02rem; font-weight: 600; color: #e6e1d8; margin-bottom: 0.6rem; line-height: 1.4; }
+  .card-desc { font-size: 0.9rem; color: #8a8780; line-height: 1.7; }
+
+  /* ===== Highlight Box ===== */
+  .highlight-box {
+    margin-top: 2rem; padding: 1.8rem 2rem;
+    background: rgba(184,128,90,0.06); border: 1px solid rgba(184,128,90,0.15);
+    border-radius: 12px;
+  }
+  .highlight-box p { font-size: 0.95rem; color: #b8b5ae; line-height: 1.8; }
+  .highlight-box .label { font-size: 0.78rem; color: #c4946a; letter-spacing: 0.08em; margin-bottom: 0.6rem; font-weight: 600; }
+
+  /* ===== Timeline ===== */
+  .timeline { margin-top: 3rem; position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 0; bottom: 0;
+    width: 1px; background: rgba(255,255,255,0.07);
+  }
+  .tl-step { position: relative; padding-bottom: 2.5rem; padding-left: 2.5rem; }
+  .tl-step:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: -1.6rem; top: 0.2rem;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #0b0a08; border: 2px solid rgba(184,128,90,0.5);
+  }
+  .tl-step:first-child .tl-dot { background: #b8805a; border-color: #b8805a; }
+  .tl-num { font-size: 0.73rem; color: #9b8b7a; letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+  .tl-title { font-size: 1.1rem; font-weight: 600; color: #e6e1d8; margin-bottom: 0.3rem; }
+  .tl-desc { font-size: 0.9rem; color: #8a8780; line-height: 1.7; }
+
+  /* ===== Phase Label ===== */
+  .phase-label {
+    display: inline-block; margin-top: 2rem; margin-bottom: 1.5rem;
+    padding: 0.4rem 1rem; background: rgba(184,128,90,0.08);
+    border: 1px solid rgba(184,128,90,0.2); border-radius: 100px;
+    font-size: 0.82rem; color: #c4946a; letter-spacing: 0.03em;
+    font-weight: 500;
+  }
+
+  /* ===== Deliverables ===== */
+  .deliver-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0.6rem; margin-top: 2.5rem; }
+  .deliver-item {
+    display: flex; align-items: flex-start; gap: 0.9rem;
+    padding: 1rem 1.2rem; background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.04); border-radius: 10px;
+    transition: border-color 0.3s ease;
+  }
+  .deliver-item:hover { border-color: rgba(184,128,90,0.15); }
+  .deliver-check {
+    flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(184,128,90,0.15); color: #c4946a;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; margin-top: 0.15rem;
+  }
+  .deliver-text { font-size: 0.93rem; color: #b5b2ab; line-height: 1.6; }
+
+  /* ===== Price ===== */
+  .price-card {
+    margin-top: 2.5rem; background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(184,128,90,0.2); border-radius: 16px;
+    padding: 3rem 2.5rem; max-width: 600px;
+  }
+  .price-name { font-size: 1.1rem; font-weight: 600; color: #e6e1d8; margin-bottom: 1.5rem; }
+  .price-amount {
+    font-size: 3.4rem; font-weight: 700; color: #c4946a;
+    letter-spacing: 0.02em; margin-bottom: 0.5rem;
+  }
+  .price-period { font-size: 0.95rem; color: #8a8780; margin-bottom: 2rem; }
+  .price-includes { margin-bottom: 2rem; }
+  .price-includes h4 { font-size: 0.85rem; color: #c4946a; letter-spacing: 0.06em; margin-bottom: 0.8rem; font-weight: 600; }
+  .price-includes ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.4rem; }
+  .price-includes li { font-size: 0.88rem; color: #a09c95; padding: 0.3rem 0; padding-left: 1rem; position: relative; }
+  .price-includes li::before { content: '+'; position: absolute; left: 0; color: #c4946a; font-size: 0.75rem; }
+  .price-note { font-size: 0.9rem; color: #7a7770; line-height: 1.8; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; }
+
+  /* ===== Fit Grid ===== */
+  .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .fit-col {
+    background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px; padding: 2rem 1.8rem;
+  }
+  .fit-col h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+  .fit-col.fit-yes h3 { color: #7db37a; }
+  .fit-col.fit-no h3 { color: #8a8780; }
+  .fit-col ul { list-style: none; padding: 0; }
+  .fit-col li { font-size: 0.92rem; color: #a8a59e; padding: 0.45rem 0; padding-left: 1.2rem; position: relative; line-height: 1.6; }
+  .fit-col li::before { content: ''; position: absolute; left: 0; top: 0.75rem; width: 5px; height: 5px; border-radius: 50%; }
+  .fit-yes li::before { background: rgba(125,179,122,0.5); }
+  .fit-no li::before { background: rgba(255,255,255,0.15); }
+
+  /* ===== CTA ===== */
+  .cta-section { text-align: center; padding: 7rem 0; position: relative; }
+  .cta-section::before {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle at center, rgba(184,128,90,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-weight: 700; color: #eee9e0; line-height: 1.35;
+    margin-bottom: 1rem; position: relative;
+  }
+  .cta-desc { font-size: 1rem; color: #94918b; line-height: 1.8; max-width: 580px; margin: 0 auto 2.5rem; position: relative; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.95rem; font-weight: 600; padding: 0.85rem 2.5rem;
+    border-radius: 100px; background: #b8805a; color: #fff;
+    border: none; cursor: pointer; letter-spacing: 0.04em;
+    transition: all 0.25s ease; position: relative;
+  }
+  .cta-btn:hover { background: #c4946a; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,128,90,0.2); }
+
+  /* ===== Footer ===== */
+  .footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 2.5rem 0; text-align: center; }
+  .footer-text { font-size: 0.8rem; color: #5c5a55; letter-spacing: 0.04em; }
+
+  /* ===== Animations ===== */
+  .fade-in {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    section { padding: 4rem 0; }
+    .container { padding: 0 1.3rem; }
+    .hero { min-height: auto; padding: 7rem 0 4rem; }
+    .hero-title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+    .hero-desc { font-size: 0.93rem; }
+    .hero-btns { flex-direction: column; }
+    .hero-btns .btn-primary, .hero-btns .btn-outline { width: 100%; justify-content: center; }
+    .card-grid.cols-4, .card-grid.cols-3, .card-grid.cols-2 { grid-template-columns: 1fr; }
+    .deliver-grid { grid-template-columns: 1fr; }
+    .fit-grid { grid-template-columns: 1fr; }
+    .timeline { padding-left: 1.2rem; }
+    .tl-step { padding-left: 2rem; }
+    .tl-dot { left: -1.4rem; }
+    .price-card { padding: 2rem 1.5rem; }
+    .price-amount { font-size: 2.5rem; }
+    .price-includes ul { grid-template-columns: 1fr; }
+    .nav-inner { padding: 0 1.3rem; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .card-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .card-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .deliver-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">周金山国画 · AI运营陪跑</div>
+    <a href="#contact" class="nav-cta">预约沟通</a>
+  </div>
+</nav>
+
+<!-- ===== Module 1: Hero ===== -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-tags">
+      <span class="hero-tag">国画IP</span>
+      <span class="hero-tag">前端内容矩阵</span>
+      <span class="hero-tag">私域运营</span>
+      <span class="hero-tag">AI知识库</span>
+      <span class="hero-tag">智能体</span>
+      <span class="hero-tag">团队人效提升</span>
+    </div>
+    <h1 class="hero-title">
+      把周金山的国画功底和教学经验，<br>用AI搭成<em>更高效的私域与内容运营系统</em>。
+    </h1>
+    <p class="hero-desc">
+      围绕周金山国画IP，梳理前端内容矩阵（小红书/抖音/视频号），搭建私域承接与运营体系，同时把国画教学经验、学员常见问题、作品资料、销售话术整理成AI知识库和智能体，让团队在日常运营中更高效地产出内容和处理客户咨询。
+    </p>
+    <div class="hero-btns">
+      <a href="#service" class="btn-primary">查看服务内容</a>
+      <a href="#contact" class="btn-outline">预约沟通</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 2: 现状诊断 ===== -->
+<section>
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">现状诊断</p>
+    <h2 class="section-title">国画功底扎实，<br>但运营端还没有形成系统。</h2>
+    <p class="section-desc">
+      周金山老师的国画水平和教学经验已经很成熟。接下来影响增长效率的，是前端内容能不能稳定产出、私域客户能不能有效承接、学员问题能不能高效处理。
+    </p>
+    <div class="card-grid cols-4">
+      <div class="card fade-in">
+        <div class="card-num">01</div>
+        <div class="card-title">前端内容产出不稳定</div>
+        <div class="card-desc">小红书、抖音、视频号内容靠临时发挥，没有选题库和内容模板。发布节奏断断续续，素材用完一次就丢了。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">02</div>
+        <div class="card-title">私域加了好友没后续</div>
+        <div class="card-desc">从各平台加到微信的国画爱好者，缺少标准承接流程。朋友圈内容和私聊跟进没有规划，很多好友加了就沉了。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">03</div>
+        <div class="card-title">学员问题重复消耗老师时间</div>
+        <div class="card-desc">国画学员反复问工具怎么选、笔墨怎么练、构图怎么学、风格怎么找。老师一个人来回回复，时间被大量重复问题占满。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">04</div>
+        <div class="card-title">资料散落，没有沉淀成系统</div>
+        <div class="card-desc">国画教学内容、学员作品案例、销售沟通记录、课程资料分散在聊天记录和各平台后台。经验积累在个人身上，没有形成团队可用的资产。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 3: 核心思路 ===== -->
+<section>
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">核心思路</p>
+    <h2 class="section-title">前端拉新、私域承接、AI做底座，<br>三条线一起跑通。</h2>
+    <p class="section-desc">
+      这套服务的做法，是把前端内容、私域运营、AI知识库当作一个整体来搭。内容负责把人引进来，私域负责承接和转化，AI负责让团队在每个环节都更高效。
+    </p>
+    <div class="card-grid cols-3" style="margin-top:2.5rem;">
+      <div class="card fade-in">
+        <div class="card-num">前端</div>
+        <div class="card-title">内容矩阵体系化</div>
+        <div class="card-desc">帮周金山国画IP搭建小红书、抖音、视频号的内容选题库、模板和发布节奏。让内容产出有章法，不用每次都从零想。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">私域</div>
+        <div class="card-title">承接与运营标准化</div>
+        <div class="card-desc">从加好友第一句话到后续跟进、朋友圈内容、社群运营、课程和作品销售，形成团队可执行的标准流程。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">AI底座</div>
+        <div class="card-title">知识库与智能体支撑</div>
+        <div class="card-desc">把国画教学资料、学员问题、销售话术、内容素材整理成AI知识库，配置内容助手和客服助手，让日常运营和咨询有系统支撑。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 4: 服务内容 ===== -->
+<section id="service">
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">服务内容</p>
+    <h2 class="section-title">围绕周金山国画IP，<br>六个模块逐一搭起来。</h2>
+    <div class="card-grid cols-3" style="margin-top:2.5rem;">
+      <div class="card fade-in">
+        <div class="card-num">01</div>
+        <div class="card-title">前端内容矩阵搭建</div>
+        <div class="card-desc">梳理小红书、抖音、视频号三个平台的内容定位和选题方向。建选题库、内容模板和发布日历。帮团队知道什么内容适合什么平台、什么节奏发、什么素材可以复用。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">02</div>
+        <div class="card-title">私域承接与运营体系</div>
+        <div class="card-desc">设计从各平台加好友后的承接流程。搭建用户分层方式、朋友圈内容规划、社群运营框架和私聊跟进SOP。让每个加进来的国画爱好者都有对应的运营动作。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">03</div>
+        <div class="card-title">课程与作品销售体系</div>
+        <div class="card-desc">梳理周金山国画课程产品和作品销售路径。明确不同客户适合什么产品、销售怎么介绍课程价值、常见价格异议怎么回应、购买后怎么交付和服务。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">04</div>
+        <div class="card-title">AI知识库搭建</div>
+        <div class="card-desc">把国画教学资料、学员常见问题、课程介绍、销售话术、内容素材、作品资料、学员案例整理成结构化知识库。后续团队做内容、回客户、答学员，都有统一的资料底座。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">05</div>
+        <div class="card-title">智能体配置</div>
+        <div class="card-desc">配置内容创作助手（辅助小红书/朋友圈/社群文案产出）、客户咨询助手（辅助销售承接咨询）、学员答疑助手（辅助处理常见学习问题）。每个智能体绑定对应知识库，按周金山国画的风格和口径输出。</div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-num">06</div>
+        <div class="card-title">AI工具应用带教</div>
+        <div class="card-desc">带团队实际使用 Obsidian 知识库、Claude Code / Codex 辅助整理资料、GPT / Claude / DeepSeek 对话模型处理日常任务。重点不是教工具操作，是让团队在日常工作中真正用起来。</div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <p class="label">服务目标</p>
+      <p>前端有内容矩阵持续产出，私域有标准流程承接运营，团队有AI知识库和智能体做日常支撑。周金山老师不用再一个人扛所有内容、咨询和教学答疑。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 5: 服务周期 ===== -->
+<section>
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">服务周期</p>
+    <h2 class="section-title">3个月，<br>前一个半月快速搭建，后续持续跑顺。</h2>
+    <p class="section-desc">
+      3个月分成两个阶段：前1.5个月集中搭建核心体系，后1.5个月围绕实际运营反馈持续优化和问题咨询。
+    </p>
+
+    <div class="phase-label">第一阶段 · 前1.5个月：快速搭建</div>
+    <div class="timeline" style="margin-top:1.5rem;">
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">第1步</div>
+        <div class="tl-title">业务诊断与资料梳理</div>
+        <div class="tl-desc">了解周金山国画IP当前业务模型、产品结构、粉丝来源、团队配置。梳理现有内容素材、教学资料、学员问题、销售记录。</div>
+      </div>
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">第2步</div>
+        <div class="tl-title">前端内容矩阵搭建</div>
+        <div class="tl-desc">确定各平台内容定位，建选题库和内容模板，制定发布日历。产出首批内容样本，团队掌握内容生产方法。</div>
+      </div>
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">第3步</div>
+        <div class="tl-title">私域承接与运营体系搭建</div>
+        <div class="tl-desc">设计承接流程、用户分层、朋友圈内容规划、社群框架、私聊跟进SOP。团队知道每个客户进来后怎么接、怎么跟、怎么转化。</div>
+      </div>
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">第4步</div>
+        <div class="tl-title">AI知识库与智能体搭建</div>
+        <div class="tl-desc">整理资料入库，搭建知识库结构。配置内容助手、客服助手、答疑助手。带团队用真实业务场景跑通AI使用流程。</div>
+      </div>
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">第5步</div>
+        <div class="tl-title">团队使用训练</div>
+        <div class="tl-desc">带团队上手 Obsidian 知识库维护、对话模型使用、智能体调用、提示词模板使用。团队能在日常工作中独立使用AI工具处理内容、咨询和答疑。</div>
+      </div>
+    </div>
+
+    <div class="phase-label">第二阶段 · 后1.5个月：持续迭代与咨询</div>
+    <div class="timeline" style="margin-top:1.5rem;">
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">持续</div>
+        <div class="tl-title">内容策略优化</div>
+        <div class="tl-desc">根据各平台数据反馈，调整选题方向、内容形式和发布节奏。协助优化小红书打窝笔记、抖音短视频和视频号直播内容。</div>
+      </div>
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">持续</div>
+        <div class="tl-title">私域运营调整</div>
+        <div class="tl-desc">根据承接数据优化接粉话术、朋友圈内容、社群运营节奏和销售跟进SOP。解决执行中遇到的具体问题。</div>
+      </div>
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">持续</div>
+        <div class="tl-title">AI知识库与智能体优化</div>
+        <div class="tl-desc">协助调整知识库结构、补充新资料、优化智能体回复质量。辅导团队在真实业务中持续使用AI处理问题。</div>
+      </div>
+      <div class="tl-step fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-num">持续</div>
+        <div class="tl-title">日常问题咨询</div>
+        <div class="tl-desc">服务期内遇到内容方向、客户承接、学员交付、AI使用等任何问题，随时沟通。不用等问题攒大了再处理。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 6: 交付成果 ===== -->
+<section>
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">交付成果</p>
+    <h2 class="section-title">服务结束后，<br>周金山国画IP会留下这些可持续使用的资产。</h2>
+    <div class="deliver-grid">
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">各平台内容定位与选题库</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">内容模板与发布日历</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">私域承接SOP（加好友到成交全流程）</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">朋友圈内容规划方案</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">社群运营框架</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">课程与作品销售话术包</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">AI知识库结构与初始内容</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">内容助手 / 客服助手 / 答疑助手配置</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">常用场景提示词模板</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">团队AI使用规范与协作流程</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">Obsidian知识库搭建与维护说明</div></div>
+      <div class="deliver-item fade-in"><div class="deliver-check">&#10003;</div><div class="deliver-text">3个月陪跑优化记录</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 7: 适合谁 ===== -->
+<section>
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">适合谁</p>
+    <h2 class="section-title">这套服务，<br>更适合已经有业务基础的国画IP。</h2>
+    <div class="fit-grid">
+      <div class="fit-col fit-yes fade-in">
+        <h3>&#9672; 适合</h3>
+        <ul>
+          <li>有国画教学或作品销售业务，想把运营做起来</li>
+          <li>已有粉丝和客户基础，需要系统化运营体系</li>
+          <li>希望前端内容有章法，不再靠临时发挥</li>
+          <li>想把教学经验和作品资料整理成团队长期资产</li>
+          <li>愿意让团队学习和使用AI工具提升效率</li>
+        </ul>
+      </div>
+      <div class="fit-col fit-no fade-in">
+        <h3>&#9672; 不适合</h3>
+        <ul>
+          <li>还没有任何内容或产品积累</li>
+          <li>只想找人代运营，团队不想参与</li>
+          <li>对AI工具完全抵触，不愿意尝试新方法</li>
+          <li>期待一个工具或一次服务解决所有问题</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 8: 价格与CTA ===== -->
+<section id="price">
+  <div class="container">
+    <div class="divider"></div>
+    <p class="module-label">服务费用</p>
+    <h2 class="section-title">说清楚价格，<br>也说清楚服务内容。</h2>
+    <div class="price-card fade-in">
+      <div class="price-name">周金山国画IP · AI助力私域运营与前端内容</div>
+      <div class="price-amount">10,000<small style="font-size:1rem;font-weight:400;color:#8a8780;"> 元</small></div>
+      <div class="price-period">服务周期：3个月<br>前1.5个月快速搭建 + 后1.5个月持续迭代与问题咨询</div>
+      <div class="price-includes">
+        <h4>服务包含</h4>
+        <ul>
+          <li>前端内容矩阵搭建</li>
+          <li>私域承接与运营体系</li>
+          <li>课程与作品销售体系梳理</li>
+          <li>AI知识库搭建带教</li>
+          <li>内容助手 / 客服助手 / 答疑助手配置</li>
+          <li>团队AI工具使用训练</li>
+          <li>3个月持续陪跑与咨询</li>
+        </ul>
+      </div>
+      <div class="price-note">
+        我们会带团队搭结构、跑示范、做模板、教方法。后续由团队持续补充资料和优化使用，这套体系才会越来越贴近周金山国画自己的业务。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Module 9: CTA ===== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2 class="cta-title">如果方向确认，<br>我们可以进一步细化执行安排。</h2>
+    <p class="cta-desc">
+      根据周金山国画IP现有资料、团队配置、内容积累和运营现状，细化前1.5个月的具体搭建计划和团队分工。
+    </p>
+    <a href="#" class="cta-btn">联系项目顾问</a>
+    <p style="margin-top:1.8rem; font-size:0.9rem; color:#7a7770; position:relative;">
+      微信号：待填写
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer-text">周金山国画IP · AI助力私域运营与前端内容</p>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
